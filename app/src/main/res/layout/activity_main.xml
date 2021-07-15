@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:padding="30dp"
+    android:background="@color/white">
+
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:padding="15dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:layout_editor_absoluteX="-8dp">
+
+      <LinearLayout
+          android:id="@+id/name_label"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Enter name: "
+             android:textSize="16dp"
+             android:textStyle="bold"
+             android:textColor="@color/black"
+             android:layout_marginRight="53dp"/>
+
+         <EditText
+             android:id="@+id/name_value"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:textColor="@color/black"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/age_label"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:layout_below="@id/name_label"
+          android:layout_marginTop="10dp"
+          android:gravity="center"
+          android:orientation="horizontal">
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Enter Age: "
+             android:textSize="16dp"
+             android:textStyle="bold"
+             android:textColor="@color/black"
+             android:layout_marginRight="65dp"/>
+
+         <EditText
+             android:id="@+id/age_value"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:inputType="number"
+             android:textColor="@color/black"/>
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/gender_label"
+          android:layout_width="match_parent"
+          android:layout_height="40dp"
+          android:layout_below="@id/age_label"
+          android:layout_marginTop="10dp"
+          android:gravity="left|center_vertical"
+          android:orientation="horizontal">
+
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Select Gender: "
+             android:textSize="16dp"
+             android:textStyle="bold"
+             android:textColor="@color/black"
+             android:layout_marginRight="35dp"/>
+
+         <RadioGroup
+             android:id="@+id/gender_options"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/gender_option_male"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Male"
+                android:textStyle="bold"
+                android:textColor="@color/gray"
+                android:layout_marginRight="15dp"/>
+
+
+            <RadioButton
+                android:id="@+id/gender_option_female"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Female"
+                android:textStyle="bold"
+                android:textColor="@color/gray"/>
+         </RadioGroup>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/button_layout"
+          android:layout_marginTop="20dp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/gender_label"
+          android:gravity="right">
+
+         <Button
+             android:id="@+id/button_submit"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="10dp"
+             android:text="Submit" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/button_layout">
+         <Button
+             android:id="@+id/button_peek"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="Peek"
+             android:layout_marginTop="40dp"/>
+      </LinearLayout>
+
+   </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
