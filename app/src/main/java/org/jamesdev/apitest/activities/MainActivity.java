@@ -1,4 +1,4 @@
-package org.jamesdev.apitest.Activity;
+package org.jamesdev.apitest.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -29,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     EditText name, age;
     RadioGroup gender_options;
     RadioButton gender;
-    Button submit, peek;
+    Button submit, peek, qr_scan_button, qr_generate_button;
     Context context;
 
     static final String URL = "192.168.1.27/test_api/";
@@ -45,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
         age = (EditText) findViewById(R.id.age_value);
         gender_options = (RadioGroup) findViewById(R.id.gender_options);
         peek = (Button) findViewById(R.id.button_peek);
+        qr_scan_button = (Button) findViewById(R.id.qr_redirect_button);
+        qr_generate_button = (Button) findViewById(R.id.generate_qr_button);
 
         context = this;
-
 
         gender_options.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
                 gender = findViewById(checkedId);
             }
         });
-
 
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -85,8 +84,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
         peek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 userInfo.enqueue(new Callback<List<UserInfo>>() {
                     @Override
                     public void onResponse(Call<List<UserInfo>> call, Response<List<UserInfo>> response) {
-                        Log.e("Sucess by me!", response.body().toString());
+                        Log.e("Success by me!", response.body().toString());
                         Intent i = new Intent(context, ResultActivity.class);
                         i.putExtra("Result", response.body().toString());
                         startActivity(i);
@@ -109,18 +106,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        qr_scan_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                makeToast("Redirecting to QR scanner page.");
+                Intent i = new Intent(MainActivity.this, QrButtonActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
-
-
-
-
-
+        qr_generate_button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                makeToast("Redirecting to QR generator page.");
+                Intent i = new Intent(MainActivity.this, QrGeneratorActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
     }
+
+
+
 
     public void makeToast(String message){
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();

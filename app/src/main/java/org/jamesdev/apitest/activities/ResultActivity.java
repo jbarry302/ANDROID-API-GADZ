@@ -1,4 +1,4 @@
-package org.jamesdev.apitest.Activity;
+package org.jamesdev.apitest.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 

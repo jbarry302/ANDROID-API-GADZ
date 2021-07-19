@@ -6,7 +6,7 @@ public final class Constants {
         throw new UnsupportedOperationException("do not instantiate this class!");
     }
 
-    public static final String BASE_URL     = "http://192.168.1.25/test_api/";
+    public static final String BASE_URL     = "http://192.168.1.125/test_api/";
 //    public static final String API_DIR      = BASE_URL + "test_api/";
 
 
